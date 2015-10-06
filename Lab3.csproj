@@ -37,6 +37,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Receipt.cs" />
     <Compile Include="StandardTicket.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
