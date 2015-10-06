@@ -25,62 +25,31 @@ namespace Lab3
 
 		private void handlePayment(UIInfo info)
 		{
-			// *************************************
-			// This is the code you need to refactor
-			// *************************************
-
-			// Get number of tariefeenheden
-			int tariefeenheden = Tariefeenheden.getTariefeenheden (info.From, info.To);
-
-			// Compute the column in the table based on choices
-			int tableColumn;
-			// First based on class
-			switch (info.Class) {
-			case UIClass.FirstClass:
-				tableColumn = 3;
-				break;
-			default:
-				tableColumn = 0;
-				break;
-			}
-			// Then, on the discount
-			switch (info.Discount) {
-			case UIDiscount.TwentyDiscount:
-				tableColumn += 1;
-				break;
-			case UIDiscount.FortyDiscount:
-				tableColumn += 2;
-				break;
-			}
-
-			// Get price
-			float price = PricingTable.getPrice (tariefeenheden, tableColumn);
-			if (info.Way == UIWay.Return) {
-				price *= 2;
-			}
-			// Add 50 cent if paying with credit card
-			if (info.Payment == UIPayment.CreditCard) {
-				price += 0.50f;
-			}
+            // *************************************
+            // This is the code you need to refactor
+            // *************************************
+            StandardTicket ticket = new StandardTicket(info);
+			
+			
 
 			// Pay
 			switch (info.Payment) {
 			case UIPayment.CreditCard:
 				CreditCard c = new CreditCard ();
 				c.Connect ();
-				int ccid = c.BeginTransaction (price);
+				int ccid = c.BeginTransaction (ticket.price);
 				c.EndTransaction (ccid);
 				break;
 			case UIPayment.DebitCard:
 				DebitCard d = new DebitCard ();
 				d.Connect ();
-				int dcid = d.BeginTransaction (price);
+				int dcid = d.BeginTransaction (ticket.price);
 				d.EndTransaction (dcid);
 				break;
 			case UIPayment.Cash:
 				IKEAMyntAtare2000 coin = new IKEAMyntAtare2000 ();
 				coin.starta ();
-				coin.betala ((int) Math.Round(price * 100));
+				coin.betala ((int) Math.Round(ticket.price * 100));
 				coin.stoppa ();
 				break;
 			}

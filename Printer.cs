@@ -6,26 +6,28 @@ using System.Windows.Forms;
 
 namespace Lab3
 {
+
     public class Printer
     {
-        Ticket ticket;
+        public class Printer
+        {
+            Ticket ticket;
 
-        public Printer(float price, string clas, string way, string discount, string payment, string startingdes, string enddes)
+            public Printer(float price, string clas, string way, string discount, string payment, string startingdes, string enddes)
         {
             this.price = ticket.price;
             this.clas = ticket.clas;
-            this.
         }
 
-        public void PrintReceipt(UIInfo uii)
+            public void PrintReceipt(UIInfo uii)
         {
             Message
         }
 
-        public void PrintTicket()
-        {
+            public void PrintTicket()
+            {
 
+            }
         }
     }
 }
-
