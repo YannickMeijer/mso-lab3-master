@@ -8,13 +8,16 @@ namespace Lab3
 {
     public class Receipt
     {
-        UIInfo uiinfo = new UIInfo();
+        public string date;
+        public float price;
+        public UIPayment payment;
 
-        // Price and Payment are all we need on the receipt.
-        public void ReceiptInfo(float amount)
+        // Price, Date and Payment are all we need on the receipt.
+        public Receipt(UIInfo infoo, Ticket ticket)
         {
-            MessageBox.Show("Price: " + amount + " EUR" + "\n" + 
-                            "Payment: " + uiinfo.Payment);
+            this.price = ticket.price;
+            this.date = ticket.date;
+            this.payment = infoo.Payment;
         }
     }
 }

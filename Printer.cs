@@ -6,28 +6,34 @@ using System.Windows.Forms;
 
 namespace Lab3
 {
-
     public class Printer
     {
-        public class Printer
-        {
-            Ticket ticket;
+        public string date;
+        public string startingStation;
+        public string destination;
+        public string trainClass;
+        public float price;
+        public string discount;
+        public UIInfo info;
+        public UIPayment payment;
 
-            public Printer(float price, string clas, string way, string discount, string payment, string startingdes, string enddes)
+       public void CreateReceipt(UIInfo infoo, Ticket ticket)
         {
             this.price = ticket.price;
-            this.clas = ticket.clas;
+            this.date = ticket.date;
+            this.payment = infoo.Payment;
         }
 
-            public void PrintReceipt(UIInfo uii)
+        public void CreateTicket(UIInfo infoo, Ticket ticket)
         {
-            Message
-        }
+            this.price = ticket.price;
+            this.trainClass = ticket.trainClass;
+            this.startingStation = ticket.startingStation;
+            this.destination = ticket.destination;
+            this.discount = ticket.discount;
 
-            public void PrintTicket()
-            {
-
-            }
+            CreateReceipt(infoo, ticket);
         }
     }
+
 }

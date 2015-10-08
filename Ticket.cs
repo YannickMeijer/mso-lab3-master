@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lab3
 {
-    abstract class Ticket //This class is abstract in case future changes require methods to be added. It is a superclass to StandardTicket
+    abstract public class Ticket //This class is abstract in case future changes require methods to be added. It is a superclass to StandardTicket
 
     {
         public String date;
