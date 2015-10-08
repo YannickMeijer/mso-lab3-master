@@ -29,30 +29,8 @@ namespace Lab3
             // This is the code you need to refactor
             // *************************************
             StandardTicket ticket = new StandardTicket(info);
-			
-			
+            Payment payment = new Payment(ticket, info);
 
-			// Pay
-			switch (info.Payment) {
-			case UIPayment.CreditCard:
-				CreditCard c = new CreditCard ();
-				c.Connect ();
-				int ccid = c.BeginTransaction (ticket.price);
-				c.EndTransaction (ccid);
-				break;
-			case UIPayment.DebitCard:
-				DebitCard d = new DebitCard ();
-				d.Connect ();
-				int dcid = d.BeginTransaction (ticket.price);
-				d.EndTransaction (dcid);
-				break;
-			case UIPayment.Cash:
-				IKEAMyntAtare2000 coin = new IKEAMyntAtare2000 ();
-				coin.starta ();
-				coin.betala ((int) Math.Round(ticket.price * 100));
-				coin.stoppa ();
-				break;
-			}
 		}
 
 #region Set-up -- don't look at it
