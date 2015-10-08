@@ -8,15 +8,15 @@ namespace Lab3
     abstract public class Ticket //This class is abstract in case future changes require methods to be added. It is a superclass to StandardTicket
 
     {
-        public String date;
-        public String startingStation;
-        public String destination;
-        public String trainClass;
+        public string date;
+        public string startingStation;
+        public string destination;
+        public string trainClass;
         public float price;
-        public String discount;
+        public string discount;
         private UIInfo info;
 
-        protected float calculatePrice(String from, String to,UIDiscount discount, UIClass classKind)
+        protected float calculatePrice(string from, string to,UIDiscount discount, UIClass classKind)
         {
             // Get number of tariefeenheden
             int tariefeenheden = Tariefeenheden.getTariefeenheden(from ,to);

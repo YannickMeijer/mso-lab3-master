@@ -17,22 +17,33 @@ namespace Lab3
         public UIInfo info;
         public UIPayment payment;
 
-       public void CreateReceipt(UIInfo infoo, Ticket ticket)
+       public void CreateReceipt(UIInfo infoo)
         {
-            this.price = ticket.price;
-            this.date = ticket.date;
             this.payment = infoo.Payment;
+            PrintReceipt();
         }
 
         public void CreateTicket(UIInfo infoo, Ticket ticket)
         {
+            this.date = ticket.date;
             this.price = ticket.price;
             this.trainClass = ticket.trainClass;
             this.startingStation = ticket.startingStation;
             this.destination = ticket.destination;
             this.discount = ticket.discount;
 
-            CreateReceipt(infoo, ticket);
+            CreateReceipt(infoo);
+            PrintTicket();
+        }
+
+        public void PrintTicket()
+        {
+            MessageBox.Show("Uw ticket wordt geprint.");
+        }
+
+        public void PrintReceipt()
+        {
+            MessageBox.Show("Uw bon wordt geprint.");
         }
     }
 
