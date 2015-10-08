@@ -10,7 +10,7 @@ namespace Lab3
         public Payment(Ticket standard, UIInfo info)
         {
             switch (info.Payment) //Changing this in any way whatsoever does get rid of the cases but would just replace it with a different system to determine which method of payyment is used.
-            {                    // no other method would make it easier to add extra payment methods, so this might as well stay.
+            {                     // no other method would make it easier to add extra payment methods, so this might as well stay.
                 case UIPayment.CreditCard:
                     CreditCard c = new CreditCard();
                     c.Connect();

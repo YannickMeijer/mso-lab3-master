@@ -50,7 +50,7 @@ namespace Lab3
             return price;
         }
 
-        protected String determineDiscount(UIDiscount discount)
+        protected string determineDiscount(UIDiscount discount)
         {
             if (discount == UIDiscount.NoDiscount)
                 return "Korting: geen.";
@@ -60,7 +60,7 @@ namespace Lab3
                 return "Korting 40%.";
         }
 
-        protected String determineClass(UIClass classKind)
+        protected string determineClass(UIClass classKind)
         {
             if (classKind == UIClass.FirstClass)
                 return "Klasse: eerste klasse";
